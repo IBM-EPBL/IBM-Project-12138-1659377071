@@ -1,3 +1,1 @@
 Documentation for IBM Project - Personal Assistance for Seniors Who Are Self-Reliant
-
-Changes by Harish L
