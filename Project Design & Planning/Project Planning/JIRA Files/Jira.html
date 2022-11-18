@@ -1,0 +1,1641 @@
+<html
+        xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<title>Jira</title>
+<style type="text/css">
+table {
+    mso-displayed-decimal-separator:"\.";
+    mso-displayed-thousand-separator:"\,";
+}
+body
+{
+    margin: 0px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    color:black;
+}
+
+</style>
+<META HTTP-EQUIV="Content-Type" Content="application/vnd.ms-excel; charset=UTF-8">
+<!-- JRA-7598 - ensure fields (e.g. description) occupy only one cell - even fields containing newlines. -->
+<!--
+Vertical align all cells to the top, in order to align all issue rows of issuetable to the top,
+since Excel does not use or save the css files it is hardcoded here.
+-->
+<style>
+@page
+{
+mso-page-orientation:landscape;
+margin:.25in .25in .5in .25in;
+mso-header-margin:.5in;
+mso-footer-margin:.25in;
+mso-footer-data:"&R&P of &N";
+mso-horizontal-page-align:center;
+mso-vertical-page-align:center;
+}
+
+td.issuekey,
+td.issuetype,
+td.status {
+    mso-style-parent: "";
+    mso-number-format: \@;
+    text-align: left;
+}
+br
+{
+    mso-data-placement:same-cell;
+}
+
+td
+{
+    vertical-align: top;
+}
+</style>
+
+<!--[if gte mso 9]><xml>
+<x:ExcelWorkbook>
+<x:ExcelWorksheets>
+<x:ExcelWorksheet>
+<x:Name>general_report</x:Name>
+<x:WorksheetOptions>
+<x:Print>
+<x:ValidPrinterInfo/>
+</x:Print>
+</x:WorksheetOptions>
+</x:ExcelWorksheet>
+</x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+
+<table border="1">
+    <tr bgcolor="#205081" height="30">
+        <td colspan="46">
+            <img src="https://harishl112.atlassian.net/images/icon-jira-software-logo.png" width="57" height="30" border="0" alt="Jira">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="46">
+            <a href="https://harishl112.atlassian.net/issues/?jql=project+%3D+%22IBM%22+ORDER+BY+created+DESC">Jira</a>
+        </td>
+    </tr>
+    <tr>
+                <td colspan="46">
+            Displaying <strong>18</strong> issues at <strong>18/Nov/22 7:50 PM</strong>.
+        </td>
+    </tr>
+</table>
+
+
+
+
+                                        <table id="issuetable" class="aui " border="1" cellpadding="3" cellspacing="1" width="100%">
+                        <thead>
+        <tr class="rowHeader">
+            
+                                                            <th class="colHeaderLink headerrow-project" data-id="project">
+                                                        Project
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuekey" data-id="issuekey">
+                                                        Key
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-summary" data-id="summary">
+                                                        Summary
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuetype" data-id="issuetype">
+                                                        Issue Type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-status" data-id="status">
+                                                        Status
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-priority" data-id="priority">
+                                                        Priority
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolution" data-id="resolution">
+                                                        Resolution
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-assignee" data-id="assignee">
+                                                        Assignee
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-reporter" data-id="reporter">
+                                                        Reporter
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-creator" data-id="creator">
+                                                        Creator
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-created" data-id="created">
+                                                        Created
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-lastViewed" data-id="lastViewed">
+                                                        Last Viewed
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-updated" data-id="updated">
+                                                        Updated
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolutiondate" data-id="resolutiondate">
+                                                        Resolved
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-versions" data-id="versions">
+                                                        Affects versions
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-fixVersions" data-id="fixVersions">
+                                                        Fix versions
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-components" data-id="components">
+                                                        Components
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-duedate" data-id="duedate">
+                                                        Due date
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-votes" data-id="votes">
+                                                        Votes
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-watches" data-id="watches">
+                                                        Watchers
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-thumbnail" data-id="thumbnail">
+                                                        Images
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeoriginalestimate" data-id="timeoriginalestimate">
+                                                        Original estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeestimate" data-id="timeestimate">
+                                                        Remaining Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timespent" data-id="timespent">
+                                                        Time Spent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-workratio" data-id="workratio">
+                                                        Work Ratio
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-subtasks" data-id="subtasks">
+                                                        Sub-tasks
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuelinks" data-id="issuelinks">
+                                                        Linked Issues
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-environment" data-id="environment">
+                                                        Environment
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-description" data-id="description">
+                                                        Description
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-security" data-id="security">
+                                                        Security Level
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-progress" data-id="progress">
+                                                        Progress
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregateprogress" data-id="aggregateprogress">
+                                                        Σ Progress
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimespent" data-id="aggregatetimespent">
+                                                        Σ Time Spent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeestimate" data-id="aggregatetimeestimate">
+                                                        Σ Remaining Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeoriginalestimate" data-id="aggregatetimeoriginalestimate">
+                                                        Σ Original Estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-labels" data-id="labels">
+                                                        Labels
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-statuscategorychangedate" data-id="statuscategorychangedate">
+                                                        Status Category Changed
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-statusCategory" data-id="statusCategory">
+                                                        Status Category
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-parent" data-id="parent">
+                                                        Parent
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10021" data-id="customfield_10021">
+                                                        Flagged
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10017" data-id="customfield_10017">
+                                                        Issue color
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10019" data-id="customfield_10019">
+                                                        Rank
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10020" data-id="customfield_10020">
+                                                        Sprint
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10015" data-id="customfield_10015">
+                                                        Start date
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10016" data-id="customfield_10016">
+                                                        Story point estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10000" data-id="customfield_10000">
+                                                        Development
+                                                    </th>
+                                                                    </tr>
+    </thead>
+    <tbody>
+                    
+
+                <tr id="issuerow10050" rel="10050" data-issuekey="IBM-18" class="issuerow">
+                                            <td class="project">    IBM-14815
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IBM-18" href="https://harishl112.atlassian.net/browse/IBM-18">IBM-18</a>
+</td>
+                                            <td class="summary"><p>
+                Hardware Integration
+    </p>
+</td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;In Progress&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This issue is being actively worked on at the moment by the assignee.&lt;/span&gt;">In Progress</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">            Harish L
+    </td>
+                                            <td class="reporter">            Harish L
+    </td>
+                                            <td class="creator">            Harish L
+    </td>
+                                            <td class="created"> 17/Nov/22 2:53 PM </td>
+                                            <td class="lastViewed"> 18/Nov/22 7:50 PM </td>
+                                            <td class="updated"> 17/Nov/22 9:42 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 17/Nov/22 9:42 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="parent">            Backend and Hardware
+    </td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i000b3:
+  </td>
+                                            <td class="customfield_10020">I14815 Sprint 4</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    10
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10049" rel="10049" data-issuekey="IBM-17" class="issuerow">
+                                            <td class="project">    IBM-14815
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IBM-17" href="https://harishl112.atlassian.net/browse/IBM-17">IBM-17</a>
+</td>
+                                            <td class="summary"><p>
+                Enhancing the interface through reiteration (Improvising)
+    </p>
+</td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;In Progress&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This issue is being actively worked on at the moment by the assignee.&lt;/span&gt;">In Progress</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">            Kaiser
+    </td>
+                                            <td class="reporter">            Harish L
+    </td>
+                                            <td class="creator">            Harish L
+    </td>
+                                            <td class="created"> 17/Nov/22 2:52 PM </td>
+                                            <td class="lastViewed"> 17/Nov/22 2:52 PM </td>
+                                            <td class="updated"> 17/Nov/22 9:42 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 17/Nov/22 9:42 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="parent">            Backend and Hardware
+    </td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i000av:
+  </td>
+                                            <td class="customfield_10020">I14815 Sprint 4</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    4
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10048" rel="10048" data-issuekey="IBM-16" class="issuerow">
+                                            <td class="project">    IBM-14815
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IBM-16" href="https://harishl112.atlassian.net/browse/IBM-16">IBM-16</a>
+</td>
+                                            <td class="summary"><p>
+                Text to Speech Engine
+    </p>
+</td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-yellow jira-issue-status-lozenge-indeterminate aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;In Progress&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This issue is being actively worked on at the moment by the assignee.&lt;/span&gt;">In Progress</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">            Gokul K S
+    </td>
+                                            <td class="reporter">            Harish L
+    </td>
+                                            <td class="creator">            Harish L
+    </td>
+                                            <td class="created"> 17/Nov/22 2:52 PM </td>
+                                            <td class="lastViewed"> 17/Nov/22 9:35 PM </td>
+                                            <td class="updated"> 17/Nov/22 9:42 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 17/Nov/22 9:42 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-yellow
+            jira-issue-status-lozenge-max-width-medium">In Progress</span>
+</td>
+                                            <td class="parent">            Backend and Hardware
+    </td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i000an:
+  </td>
+                                            <td class="customfield_10020">I14815 Sprint 4</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    6
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10047" rel="10047" data-issuekey="IBM-15" class="issuerow">
+                                            <td class="project">    IBM-14815
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IBM-15" href="https://harishl112.atlassian.net/browse/IBM-15">IBM-15</a>
+</td>
+                                            <td class="summary"><p>
+                Device Setup
+    </p>
+</td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Harish L
+    </td>
+                                            <td class="reporter">            Harish L
+    </td>
+                                            <td class="creator">            Harish L
+    </td>
+                                            <td class="created"> 17/Nov/22 2:51 PM </td>
+                                            <td class="lastViewed"> 17/Nov/22 7:12 PM </td>
+                                            <td class="updated"> 18/Nov/22 7:38 PM </td>
+                                            <td class="resolutiondate"> 18/Nov/22 7:38 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 18/Nov/22 7:38 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent">            Backend and Hardware
+    </td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i000bb:
+  </td>
+                                            <td class="customfield_10020">I14815 Sprint 3</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    5
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10046" rel="10046" data-issuekey="IBM-14" class="issuerow">
+                                            <td class="project">    IBM-14815
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IBM-14" href="https://harishl112.atlassian.net/browse/IBM-14">IBM-14</a>
+</td>
+                                            <td class="summary"><p>
+                Cloudant DB Setup
+    </p>
+</td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Kaiser
+    </td>
+                                            <td class="reporter">            Harish L
+    </td>
+                                            <td class="creator">            Harish L
+    </td>
+                                            <td class="created"> 17/Nov/22 2:50 PM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 17/Nov/22 9:38 PM </td>
+                                            <td class="resolutiondate"> 17/Nov/22 9:38 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 17/Nov/22 9:38 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent">            Backend and Hardware
+    </td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i000a7:
+  </td>
+                                            <td class="customfield_10020">I14815 Sprint 3</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    5
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10045" rel="10045" data-issuekey="IBM-13" class="issuerow">
+                                            <td class="project">    IBM-14815
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IBM-13" href="https://harishl112.atlassian.net/browse/IBM-13">IBM-13</a>
+</td>
+                                            <td class="summary"><p>
+                IBM Watson Setup
+    </p>
+</td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Rashmi S
+    </td>
+                                            <td class="reporter">            Harish L
+    </td>
+                                            <td class="creator">            Harish L
+    </td>
+                                            <td class="created"> 17/Nov/22 2:50 PM </td>
+                                            <td class="lastViewed"> 17/Nov/22 2:51 PM </td>
+                                            <td class="updated"> 17/Nov/22 9:38 PM </td>
+                                            <td class="resolutiondate"> 17/Nov/22 9:38 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 17/Nov/22 9:38 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent">            Backend and Hardware
+    </td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0009z:
+  </td>
+                                            <td class="customfield_10020">I14815 Sprint 3</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    5
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10044" rel="10044" data-issuekey="IBM-12" class="issuerow">
+                                            <td class="project">    IBM-14815
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IBM-12" href="https://harishl112.atlassian.net/browse/IBM-12">IBM-12</a>
+</td>
+                                            <td class="summary"><p>
+                Node-Red Flow Setup
+    </p>
+</td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Gokul K S
+    </td>
+                                            <td class="reporter">            Harish L
+    </td>
+                                            <td class="creator">            Harish L
+    </td>
+                                            <td class="created"> 17/Nov/22 2:50 PM </td>
+                                            <td class="lastViewed"> 17/Nov/22 2:51 PM </td>
+                                            <td class="updated"> 17/Nov/22 9:38 PM </td>
+                                            <td class="resolutiondate"> 17/Nov/22 9:38 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 17/Nov/22 9:38 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent">            Backend and Hardware
+    </td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0009r:
+  </td>
+                                            <td class="customfield_10020">I14815 Sprint 3</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    5
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10043" rel="10043" data-issuekey="IBM-11" class="issuerow">
+                                            <td class="project">    IBM-14815
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IBM-11" href="https://harishl112.atlassian.net/browse/IBM-11">IBM-11</a>
+</td>
+                                            <td class="summary"><p>
+                Dashboard for Physician&#39;s Usage
+    </p>
+</td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Rashmi S
+    </td>
+                                            <td class="reporter">            Harish L
+    </td>
+                                            <td class="creator">            Harish L
+    </td>
+                                            <td class="created"> 17/Nov/22 2:49 PM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 17/Nov/22 9:38 PM </td>
+                                            <td class="resolutiondate"> 17/Nov/22 9:38 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 17/Nov/22 9:38 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent">            Dashboard
+    </td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0009j:
+  </td>
+                                            <td class="customfield_10020">I14815 Sprint 2</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    6
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10042" rel="10042" data-issuekey="IBM-10" class="issuerow">
+                                            <td class="project">    IBM-14815
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IBM-10" href="https://harishl112.atlassian.net/browse/IBM-10">IBM-10</a>
+</td>
+                                            <td class="summary"><p>
+                Dashboard for Caretaker&#39;s Usage
+    </p>
+</td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Kaiser
+    </td>
+                                            <td class="reporter">            Harish L
+    </td>
+                                            <td class="creator">            Harish L
+    </td>
+                                            <td class="created"> 17/Nov/22 2:49 PM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 17/Nov/22 9:38 PM </td>
+                                            <td class="resolutiondate"> 17/Nov/22 9:38 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 17/Nov/22 9:38 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent">            Dashboard
+    </td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0009b:
+  </td>
+                                            <td class="customfield_10020">I14815 Sprint 2</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    6
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10041" rel="10041" data-issuekey="IBM-9" class="issuerow">
+                                            <td class="project">    IBM-14815
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IBM-9" href="https://harishl112.atlassian.net/browse/IBM-9">IBM-9</a>
+</td>
+                                            <td class="summary"><p>
+                Dashboard for Patient&#39;s Usage
+    </p>
+</td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Gokul K S
+    </td>
+                                            <td class="reporter">            Harish L
+    </td>
+                                            <td class="creator">            Harish L
+    </td>
+                                            <td class="created"> 17/Nov/22 2:49 PM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 17/Nov/22 9:38 PM </td>
+                                            <td class="resolutiondate"> 17/Nov/22 9:38 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 17/Nov/22 9:38 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent">            Dashboard
+    </td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i00093:
+  </td>
+                                            <td class="customfield_10020">I14815 Sprint 2</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    8
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10040" rel="10040" data-issuekey="IBM-8" class="issuerow">
+                                            <td class="project">    IBM-14815
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IBM-8" href="https://harishl112.atlassian.net/browse/IBM-8">IBM-8</a>
+</td>
+                                            <td class="summary"><p>
+                Logging in using Email &amp; Password or by other services
+    </p>
+</td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Gokul K S
+    </td>
+                                            <td class="reporter">            Harish L
+    </td>
+                                            <td class="creator">            Harish L
+    </td>
+                                            <td class="created"> 17/Nov/22 2:49 PM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 17/Nov/22 9:38 PM </td>
+                                            <td class="resolutiondate"> 17/Nov/22 9:38 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 17/Nov/22 9:38 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent">            Login Page
+    </td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0008v:
+  </td>
+                                            <td class="customfield_10020">I14815 Sprint 1</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    5
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10039" rel="10039" data-issuekey="IBM-7" class="issuerow">
+                                            <td class="project">    IBM-14815
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IBM-7" href="https://harishl112.atlassian.net/browse/IBM-7">IBM-7</a>
+</td>
+                                            <td class="summary"><p>
+                Giving optional registration methods from Facebook and Google
+    </p>
+</td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Harish L
+    </td>
+                                            <td class="reporter">            Harish L
+    </td>
+                                            <td class="creator">            Harish L
+    </td>
+                                            <td class="created"> 17/Nov/22 2:48 PM </td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="updated"> 17/Nov/22 9:38 PM </td>
+                                            <td class="resolutiondate"> 17/Nov/22 9:38 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 17/Nov/22 9:38 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent">            Registration Page
+    </td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0008n:
+  </td>
+                                            <td class="customfield_10020">I14815 Sprint 1</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    5
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10038" rel="10038" data-issuekey="IBM-6" class="issuerow">
+                                            <td class="project">    IBM-14815
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IBM-6" href="https://harishl112.atlassian.net/browse/IBM-6">IBM-6</a>
+</td>
+                                            <td class="summary"><p>
+                Triggering the Verification mail
+    </p>
+</td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Kaiser
+    </td>
+                                            <td class="reporter">            Harish L
+    </td>
+                                            <td class="creator">            Harish L
+    </td>
+                                            <td class="created"> 17/Nov/22 2:48 PM </td>
+                                            <td class="lastViewed"> 17/Nov/22 3:06 PM </td>
+                                            <td class="updated"> 17/Nov/22 9:38 PM </td>
+                                            <td class="resolutiondate"> 17/Nov/22 9:38 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 17/Nov/22 9:38 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent">            Registration Page
+    </td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i0008f:
+  </td>
+                                            <td class="customfield_10020">I14815 Sprint 1</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    5
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10037" rel="10037" data-issuekey="IBM-5" class="issuerow">
+                                            <td class="project">    IBM-14815
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IBM-5" href="https://harishl112.atlassian.net/browse/IBM-5">IBM-5</a>
+</td>
+                                            <td class="summary"><p>
+                Developing Page for getting Username &amp; Password
+    </p>
+</td>
+                                            <td class="issuetype">    Story
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    Done
+</td>
+                                            <td class="assignee">            Rashmi S
+    </td>
+                                            <td class="reporter">            Harish L
+    </td>
+                                            <td class="creator">            Harish L
+    </td>
+                                            <td class="created"> 17/Nov/22 2:48 PM </td>
+                                            <td class="lastViewed"> 18/Nov/22 7:49 PM </td>
+                                            <td class="updated"> 17/Nov/22 9:38 PM </td>
+                                            <td class="resolutiondate"> 17/Nov/22 9:38 PM </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 17/Nov/22 9:38 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Done</span>
+</td>
+                                            <td class="parent">            Registration Page
+    </td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="customfield_10019">      0|i00087:
+  </td>
+                                            <td class="customfield_10020">I14815 Sprint 1</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016">    5
+</td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10036" rel="10036" data-issuekey="IBM-4" class="issuerow">
+                                            <td class="project">    IBM-14815
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IBM-4" href="https://harishl112.atlassian.net/browse/IBM-4">IBM-4</a>
+</td>
+                                            <td class="summary"><p>
+                Backend and Hardware
+    </p>
+</td>
+                                            <td class="issuetype">    Epic
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">            Gokul K S
+    </td>
+                                            <td class="reporter">            Harish L
+    </td>
+                                            <td class="creator">            Harish L
+    </td>
+                                            <td class="created"> 17/Nov/22 2:47 PM </td>
+                                            <td class="lastViewed"> 18/Nov/22 7:48 PM </td>
+                                            <td class="updated"> 18/Nov/22 7:49 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 17/Nov/22 2:47 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017">      purple
+  </td>
+                                            <td class="customfield_10019">      0|i0007z:
+  </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10035" rel="10035" data-issuekey="IBM-3" class="issuerow">
+                                            <td class="project">    IBM-14815
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IBM-3" href="https://harishl112.atlassian.net/browse/IBM-3">IBM-3</a>
+</td>
+                                            <td class="summary"><p>
+                Dashboard
+    </p>
+</td>
+                                            <td class="issuetype">    Epic
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">            Harish L
+    </td>
+                                            <td class="reporter">            Harish L
+    </td>
+                                            <td class="creator">            Harish L
+    </td>
+                                            <td class="created"> 17/Nov/22 2:47 PM </td>
+                                            <td class="lastViewed"> 18/Nov/22 7:48 PM </td>
+                                            <td class="updated"> 18/Nov/22 7:48 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 17/Nov/22 2:47 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017">      purple
+  </td>
+                                            <td class="customfield_10019">      0|i0007r:
+  </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10034" rel="10034" data-issuekey="IBM-2" class="issuerow">
+                                            <td class="project">    IBM-14815
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IBM-2" href="https://harishl112.atlassian.net/browse/IBM-2">IBM-2</a>
+</td>
+                                            <td class="summary"><p>
+                Login Page
+    </p>
+</td>
+                                            <td class="issuetype">    Epic
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">            Kaiser
+    </td>
+                                            <td class="reporter">            Harish L
+    </td>
+                                            <td class="creator">            Harish L
+    </td>
+                                            <td class="created"> 17/Nov/22 2:47 PM </td>
+                                            <td class="lastViewed"> 18/Nov/22 7:48 PM </td>
+                                            <td class="updated"> 18/Nov/22 7:48 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 17/Nov/22 2:47 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017">      purple
+  </td>
+                                            <td class="customfield_10019">      0|i0007j:
+  </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+
+
+                <tr id="issuerow10033" rel="10033" data-issuekey="IBM-1" class="issuerow">
+                                            <td class="project">    IBM-14815
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="IBM-1" href="https://harishl112.atlassian.net/browse/IBM-1">IBM-1</a>
+</td>
+                                            <td class="summary"><p>
+                Registration Page
+    </p>
+</td>
+                                            <td class="issuetype">    Epic
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;To Do&lt;/span&gt;">To Do</span>    </td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="resolution">    <em>Unresolved</em>
+</td>
+                                            <td class="assignee">            Rashmi S
+    </td>
+                                            <td class="reporter">            Harish L
+    </td>
+                                            <td class="creator">            Harish L
+    </td>
+                                            <td class="created"> 17/Nov/22 2:47 PM </td>
+                                            <td class="lastViewed"> 18/Nov/22 7:47 PM </td>
+                                            <td class="updated"> 18/Nov/22 7:48 PM </td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="versions">    &nbsp;
+</td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="components">    &nbsp;
+</td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="votes">0</td>
+                                            <td class="watches">1</td>
+                                            <td class="thumbnail"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="timespent"></td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="subtasks"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="environment"></td>
+                                            <td class="description"></td>
+                                            <td class="security"></td>
+                                            <td class="progress"></td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="labels"></td>
+                                            <td class="statuscategorychangedate"> 17/Nov/22 2:47 PM </td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">To Do</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="customfield_10017">      purple
+  </td>
+                                            <td class="customfield_10019">      0|i0007b:
+  </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10000"></td>
+                    </tr>
+        </tbody>
+    </table>
+    <div class="end-of-stable-message"></div>
+            <table border="1" >
+<tr>
+    <td bgcolor="#dddddd" colspan="46"><font size="1">
+        Generated at Fri Nov 18 14:20:49 UTC 2022 by Harish L using Jira 1001.0.0-SNAPSHOT#100210-sha1:9b34d7cc56ccedf37042f403595483f2079121f4.
+    </font></td>
+</tr>
+</table>
+
+</body>
+</html>
