@@ -147,4 +147,8 @@ void callback(char* subscribetopic, byte* payload, unsigned int payloadLength)
   } 
   Serial.println("data: "+ sub_data); 
 sub_data=""; 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 12760f8ebabffa6a99f7123c6a7eeadd0d0af593
